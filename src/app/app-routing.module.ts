@@ -9,9 +9,10 @@ const routes: Routes = [
   { path: 'mascota', component: MascotaComponent },
   { path: '', redirectTo:'/mascota', pathMatch: 'full'},
   { path: 'raza', component: RazaComponent},
-  { path: '**', component:PageNotFoundComponent},
-  { path: 'tipoAnimal', component:TipoAnimalComponent}
-
+  { path: 'tipoAnimal', component:TipoAnimalComponent},
+  //Comodín de página no encontrada, siempre al final
+  { path: '**', component: PageNotFoundComponent}
+  
 ];
 
 @NgModule({

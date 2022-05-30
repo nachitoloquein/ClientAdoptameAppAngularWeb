@@ -10,6 +10,10 @@ export class TipoAnimalService {
 
   tiposAnimales: TipoAnimal[];
 
+  selectedTipoAnimal: TipoAnimal= {
+    descripcion: ''
+  };
+
   URL_API = `${dominio}/api/tipoAnimal`;
 
   constructor(private http: HttpClient) { }

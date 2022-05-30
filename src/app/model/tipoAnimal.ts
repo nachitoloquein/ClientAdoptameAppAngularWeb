@@ -1,4 +1,4 @@
 export interface TipoAnimal{
-    _id: string,
+    _id?: string,
     descripcion: string
 }
