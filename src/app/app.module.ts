@@ -8,9 +8,12 @@ import { FormsModule } from '@angular/forms';
 import { RazaComponent } from './components/raza/raza.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { TipoAnimalComponent } from './components/tipo-animal/tipo-animal.component';
-import { LoginComponent } from './auth/login/login.component';
-import { RegisterComponent } from './auth/register/register.component';
 import { AuthRoutingModule } from './auth/auth-routing.module';
+import { FooterComponent } from './components/footer/footer.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { HeaderComponent } from './components/header/header.component';
+import { AsideComponent } from './components/aside/aside.component';
 
 @NgModule({
   declarations: [
@@ -19,8 +22,11 @@ import { AuthRoutingModule } from './auth/auth-routing.module';
     RazaComponent,
     PageNotFoundComponent,
     TipoAnimalComponent,
-    LoginComponent,
-    RegisterComponent
+    FooterComponent,
+    NavbarComponent,
+    SidebarComponent,
+    HeaderComponent,
+    AsideComponent
   ],
   imports: [
     BrowserModule,

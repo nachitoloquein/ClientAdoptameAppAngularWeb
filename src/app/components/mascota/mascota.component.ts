@@ -9,7 +9,7 @@ import { Mascota } from 'src/app/model/mascota';
 @Component({
   selector: 'app-mascota',
   templateUrl: './mascota.component.html',
-  styleUrls: ['./mascota.component.css']
+  styleUrls: ['../masterStyle.css']
 })
 export class MascotaComponent implements OnInit {
 

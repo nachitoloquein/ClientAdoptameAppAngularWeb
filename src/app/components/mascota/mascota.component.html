@@ -1,63 +1,96 @@
-<div>
-    <div class="col-md-4">
-        <div class="card">
-            <div class="card-body">
-                <h1>Formulario</h1>
-                <form #mascotaForm="ngForm" (ngSubmit)="addMascota(mascotaForm)">
-                    <input type="hidden" name="_id" [(ngModel)]="mascotaService.selectedMascota._id">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Ingresa el nombre de la mascota"
-                            required="true" name="nombre" [(ngModel)]="mascotaService.selectedMascota.nombre">
-                    </div>
-                    <div>
-                        <select class="form-select" name="tipoAnimal"
-                            [(ngModel)]="mascotaService.selectedMascota.tipoAnimal" required="true">
-                            <option disabled="true" selected>Ingresa el tipo de animal</option>
-                            <option *ngFor="let tipoAnimal of tipoAnimalService.tiposAnimales" [value]="tipoAnimal._id">
-                                {{tipoAnimal.descripcion}}</option>
-                        </select>
-                    </div>
-                    <div>
-                        <select class="form-select" name="raza" [(ngModel)]="mascotaService.selectedMascota.raza"
-                            required="true">
-                            <option disabled="true" selected>Ingresa la raza de animal</option>
-                            <option *ngFor="let raza of razaService.razas" [value]="raza._id">{{raza.descripcion}}
-                            </option>
-                        </select>
-                    </div>
-                    <button class="btn btn-secondary" (click)="resetForm(mascotaForm)">
-                        Limpiar
-                    </button>
-                    <button class="btn btn-primary mr-2">
-                        Guardar
-                    </button>
-                </form>
+<div class="wrapper">
+    <app-navbar></app-navbar>
+    <app-aside></app-aside>
+    <div class="content-wrapper">
+        <app-header></app-header>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h1>Formulario</h1>
+                    <form #mascotaForm="ngForm" (ngSubmit)="addMascota(mascotaForm)">
+                        <input type="hidden" name="_id" [(ngModel)]="mascotaService.selectedMascota._id">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Ingresa el nombre de la mascota"
+                                required="true" name="nombre" [(ngModel)]="mascotaService.selectedMascota.nombre">
+                        </div>
+                        <div>
+                            <select class="form-select" name="tipoAnimal"
+                                [(ngModel)]="mascotaService.selectedMascota.tipoAnimal" required="true">
+                                <option disabled="true" selected>Ingresa el tipo de animal</option>
+                                <option *ngFor="let tipoAnimal of tipoAnimalService.tiposAnimales"
+                                    [value]="tipoAnimal._id">
+                                    {{tipoAnimal.descripcion}}</option>
+                            </select>
+                        </div>
+                        <div>
+                            <select class="form-select" name="raza"
+                                [(ngModel)]="mascotaService.selectedMascota.raza" required="true">
+                                <option disabled="true" selected>Ingresa la raza de animal</option>
+                                <option *ngFor="let raza of razaService.razas" [value]="raza._id">
+                                    {{raza.descripcion}}
+                                </option>
+                            </select>
+                        </div>
+                        <button class="btn btn-secondary" (click)="resetForm(mascotaForm)">
+                            Limpiar
+                        </button>
+                        <button class="btn btn-primary mr-2">
+                            Guardar
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
+
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Registro de mascotas</h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <table id="example2" class="table table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Nombre</th>
+                                            <th>Tipo de animal</th>
+                                            <th>Raza</th>
+                                            <th>Operaciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let mascota of mascotaService.mascotas">
+                                            <td>{{mascota.nombre}}</td>
+                                            <td>{{mascota.tipoAnimal.descripcion}}</td>
+                                            <td>{{mascota.raza.descripcion}}</td>
+                                            <td>
+                                                <button class="btn btn-secondary" (click)="editMascota(mascota)"><i
+                                                        class="material-icons">edit</i></button>
+                                                <button class="btn btn-danger"
+                                                    (click)="deleteMascota(mascota._id!)"><i
+                                                        class="material-icons">delete</i></button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Nombre</th>
+                                            <th>Tipo de animal</th>
+                                            <th>Raza</th>
+                                            <th>Operaciones</th>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
-    <div class="col-md-8">
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Nombre</th>
-                    <th>Tipo de animal</th>
-                    <th>Raza</th>
-                    <th>Operaciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let mascota of mascotaService.mascotas">
-                    <td>{{mascota.nombre}}</td>
-                    <td>{{mascota.tipoAnimal.descripcion}}</td>
-                    <td>{{mascota.raza.descripcion}}</td>
-                    <td>
-                        <button class="btn btn-secondary" (click)="editMascota(mascota)"><i
-                                class="material-icons">edit</i></button>
-                        <button class="btn btn-danger" (click)="deleteMascota(mascota._id!)"><i
-                                class="material-icons">delete</i></button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <app-footer></app-footer>
 </div>

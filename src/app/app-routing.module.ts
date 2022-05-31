@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: 'raza', component: RazaComponent},
   { path: 'tipoAnimal', component:TipoAnimalComponent},
   //Comodín de página no encontrada, siempre al final
-  { path: '**', component: PageNotFoundComponent}
+  //{ path: '**', component: PageNotFoundComponent}
   
 ];
 
