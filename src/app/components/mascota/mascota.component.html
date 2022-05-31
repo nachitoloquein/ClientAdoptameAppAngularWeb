@@ -3,7 +3,10 @@
     <app-aside></app-aside>
     <div class="content-wrapper">
         <app-header></app-header>
-        <div class="col-md-4">
+
+       
+
+       <!--  <div class="col-md-4">
             <div class="card">
                 <div class="card-body">
                     <h1>Formulario</h1>
@@ -40,11 +43,63 @@
                     </form>
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <section class="content">
             <div class="container-fluid">
                 <div class="row">
+
+                    <div class="col-md-12">
+                        <!-- jquery validation -->
+                        <div class="card card-primary">
+                          <div class="card-header">
+                            <h3 class="card-title">Formulario</h3>
+                          </div>
+                          <!-- /.card-header -->
+                          <!-- form start -->
+                          <form id="quickForm" form #mascotaForm="ngForm" (ngSubmit)="addMascota(mascotaForm)">
+                            <input type="hidden" name="_id" [(ngModel)]="mascotaService.selectedMascota._id">
+                            <div class="card-body">
+                              <div class="form-group">
+                                <label for="exampleInputEmail1">Nombre de mascota</label>
+                                <input type="text" class="form-control" placeholder="Ingresa el nombre de la mascota" required name="nombre" [(ngModel)]="mascotaService.selectedMascota.nombre">
+                              </div>
+                              <div class="form-group">
+                                <label>Tipo de animal</label>
+                                <select class="form-control custom-select" [(ngModel)]="mascotaService.selectedMascota.tipoAnimal" required name="tipoAnimal">
+                                    <option selected disabled>Ingresa el tipo de animal</option>
+                                    <option *ngFor="let tipoAnimal of tipoAnimalService.tiposAnimales"
+                                    [value]="tipoAnimal._id">
+                                    {{tipoAnimal.descripcion}}</option>
+                                  </select>
+                              </div>
+                              <div class="form-group">
+                                <label>Tipo de animal</label>
+                                <select class="form-control custom-select" [(ngModel)]="mascotaService.selectedMascota.raza" required name="raza">
+                                    <option selected disabled>Ingresa la raza de animal</option>
+                                    <option *ngFor="let raza of razaService.razas" [value]="raza._id">
+                                        {{raza.descripcion}}
+                                    </option>
+                                    </select>
+                              </div>
+                            </div>
+                            <!-- /.card-body -->
+                            <div class="card-footer">
+                                <button class="btn btn-secondary" (click)="resetForm(mascotaForm)">
+                                    Limpiar
+                                </button>
+                                <button class="btn btn-primary mr-2">
+                                    Guardar
+                                </button>
+                            </div>
+                          </form>
+                        </div>
+                        <!-- /.card -->
+                    </div>
+
+
+
+
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
