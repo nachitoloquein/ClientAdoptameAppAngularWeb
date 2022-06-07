@@ -12,4 +12,10 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  preguntar(){
+    if (confirm('Estás seguro que deseas cerrar sesión?')){
+      console.log("cerrando...");
+    }
+  }
+
 }

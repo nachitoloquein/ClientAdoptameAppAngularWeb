@@ -14,6 +14,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { HeaderComponent } from './components/header/header.component';
 import { AsideComponent } from './components/aside/aside.component';
+import { InicioComponent } from './components/inicio/inicio.component';
+import { ConfiguracionComponent } from './components/configuracion/configuracion.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { AsideComponent } from './components/aside/aside.component';
     NavbarComponent,
     SidebarComponent,
     HeaderComponent,
-    AsideComponent
+    AsideComponent,
+    InicioComponent,
+    ConfiguracionComponent
   ],
   imports: [
     BrowserModule,
