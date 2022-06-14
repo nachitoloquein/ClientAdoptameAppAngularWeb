@@ -9,7 +9,7 @@ import { TipoAnimalComponent } from './components/tipo-animal/tipo-animal.compon
 
 const routes: Routes = [
   { path: 'mascota', component: MascotaComponent },
-  { path: '', redirectTo:'/mascota', pathMatch: 'full'},
+  { path: '', redirectTo:'/login', pathMatch: 'full'},
   { path: 'raza', component: RazaComponent},
   { path: 'tipoAnimal', component:TipoAnimalComponent},
   { path: 'inicio', component: InicioComponent},
@@ -20,7 +20,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes,  { anchorScrolling: 'enabled'})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
