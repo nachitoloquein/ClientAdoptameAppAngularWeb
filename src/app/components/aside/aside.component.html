@@ -1,7 +1,51 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="../../index3.html" class="brand-link">
-      <span class="brand-text font-weight-light">Ave Mundo</span>
+    <a href="#" class="brand-link">
+      <img src="../../../assets/white-icon.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <span class="brand-text font-weight-light">AdoptameApp</span>
     </a>
-    <app-sidebar></app-sidebar>
+    <div class="sidebar">
+      <!-- Sidebar user (optional) -->
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+          <img src="https://www.therconline.com/wp-content/uploads/2022/05/Does-Facebook-have-the-%E2%80%98New-Profile-Pic-feature-as-app-goes-viral-1.png" class="img-circle elevation-2" alt="User Image">
+        </div> 
+        <div class="info">
+          <a href="#" class="d-block">this.usuario</a>
+        </div>
+      </div>
+  
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+          <li class="nav-item">
+            <a routerLink="/inicio" class="nav-link">
+              <i class="nav-icon fa fa-home"></i>
+              <p>
+                Inicio
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/mascota" class="nav-link">
+              <i class="nav-icon fa fa-paw"></i>
+              <p>
+                Publicar mascota
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/configuracion" class="nav-link">
+              <i class="nav-icon fa fa-cog"></i>
+              <p>
+                Configurar perfil
+              </p>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
 </aside>

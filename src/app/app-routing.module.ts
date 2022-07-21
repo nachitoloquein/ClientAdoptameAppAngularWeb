@@ -8,12 +8,12 @@ import { RazaComponent } from './components/raza/raza.component';
 import { TipoAnimalComponent } from './components/tipo-animal/tipo-animal.component';
 
 const routes: Routes = [
-  { path: 'mascota', component: MascotaComponent },
+  { path: 'mascota', component: MascotaComponent, data: {title: 'Mascota'} },
   { path: '', redirectTo:'/login', pathMatch: 'full'},
-  { path: 'raza', component: RazaComponent},
-  { path: 'tipoAnimal', component:TipoAnimalComponent},
-  { path: 'inicio', component: InicioComponent},
-  { path: 'configuracion', component: ConfiguracionComponent}
+  { path: 'raza', component: RazaComponent, data: {title: 'Raza'}},
+  { path: 'tipoAnimal', component:TipoAnimalComponent, data: {title: 'Tipo Animal'}},
+  { path: 'inicio', component: InicioComponent, data: {title: 'Inicio'}},
+  { path: 'configuracion', component: ConfiguracionComponent, data: {title: 'Configuración'}},
   //Comodín de página no encontrada, siempre al final
   //{ path: '**', component: PageNotFoundComponent}
   

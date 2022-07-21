@@ -11,7 +11,6 @@ import { TipoAnimalComponent } from './components/tipo-animal/tipo-animal.compon
 import { AuthRoutingModule } from './auth/auth-routing.module';
 import { FooterComponent } from './components/footer/footer.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { HeaderComponent } from './components/header/header.component';
 import { AsideComponent } from './components/aside/aside.component';
 import { InicioComponent } from './components/inicio/inicio.component';
@@ -26,7 +25,6 @@ import { ConfiguracionComponent } from './components/configuracion/configuracion
     TipoAnimalComponent,
     FooterComponent,
     NavbarComponent,
-    SidebarComponent,
     HeaderComponent,
     AsideComponent,
     InicioComponent,
