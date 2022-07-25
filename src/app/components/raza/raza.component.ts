@@ -24,7 +24,7 @@ export class RazaComponent implements OnInit {
       err => console.log(err)
     );
   }
-
+/* 
   addRaza(form: NgForm) {
     if(form.value._id){
       this.razaService.putRaza(form.value).subscribe(
@@ -64,5 +64,5 @@ export class RazaComponent implements OnInit {
   resetForm(form: NgForm){
     form.reset();
   }
-
+ */
 }

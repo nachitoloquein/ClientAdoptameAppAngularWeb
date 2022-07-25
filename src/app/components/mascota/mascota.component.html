@@ -22,32 +22,24 @@
                                 <input type="text" class="form-control" placeholder="Ingresa el nombre de la mascota" required name="nombre" [(ngModel)]="mascotaService.selectedMascota.nombre">
                               </div>
                               <div class="form-group">
-                                <label>Tipo de animal</label>
-                                <select class="form-control custom-select" [(ngModel)]="mascotaService.selectedMascota.tipoAnimal" required name="tipoAnimal">
-                                    <option selected disabled>Ingresa el tipo de animal</option>
-                                    <option *ngFor="let tipoAnimal of tipoAnimalService.tiposAnimales"
-                                    [value]="tipoAnimal._id">
-                                    {{tipoAnimal.descripcion}}</option>
-                                  </select>
-                              </div>
-                              <div class="form-group">
-                                <label>Tipo de animal</label>
-                                <select class="form-control custom-select" [(ngModel)]="mascotaService.selectedMascota.raza" required name="raza">
-                                    <option selected disabled>Ingresa la raza de animal</option>
-                                    <option *ngFor="let raza of razaService.razas" [value]="raza._id">
-                                        {{raza.descripcion}}
+                                <label>Raza</label>
+                                <select class="form-control" [(ngModel)]="mascotaService.selectedMascota.raza" required name="raza">
+                                    <option value="" selected disabled>Ingresa la raza de animal</option>
+                                    <option selected *ngFor="let raza of razaService.razas" [value]="raza.name">
+                                        {{raza.name}}
                                     </option>
-                                    </select>
+                                </select>
                               </div>
                             </div>
                             <!-- /.card-body -->
                             <div class="card-footer">
-                                <button class="btn btn-outline-danger" (click)="resetForm(mascotaForm)">
-                                    Cancelar
-                                </button>
                                 <button class="btn btn-outline-primary mr-2">
                                     Publicar
                                 </button>
+                                <button class="btn btn-outline-danger" (click)="resetForm(mascotaForm)">
+                                    Cancelar
+                                </button>
+                                
                             </div>
                           </form>
                         </div>
@@ -64,7 +56,6 @@
                                     <thead>
                                         <tr>
                                             <th>Nombre</th>
-                                            <th>Tipo de animal</th>
                                             <th>Raza</th>
                                             <th>Operaciones</th>
                                         </tr>
@@ -72,8 +63,7 @@
                                     <tbody>
                                         <tr *ngFor="let mascota of mascotaService.mascotas">
                                             <td>{{mascota.nombre}}</td>
-                                            <td>{{mascota.tipoAnimal.descripcion}}</td>
-                                            <td>{{mascota.raza.descripcion}}</td>
+                                            <td>{{mascota.raza}}</td>
                                             <td>
                                                 <button class="btn btn-secondary" (click)="editMascota(mascota)"><i
                                                         class="material-icons">edit</i></button>
@@ -86,7 +76,6 @@
                                     <tfoot>
                                         <tr>
                                             <th>Nombre</th>
-                                            <th>Tipo de animal</th>
                                             <th>Raza</th>
                                             <th>Operaciones</th>
                                         </tr>

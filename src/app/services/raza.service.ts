@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { dominio } from './dominio';
+//import { dominio } from './dominio';
 import { Raza } from '../model/raza'; 
 
 @Injectable({
@@ -8,21 +8,30 @@ import { Raza } from '../model/raza';
 })
 export class RazaService {
 
-  selectedRaza: Raza ={
+  /* selectedRaza: Raza ={
     descripcion: ''
+  }; */
+
+  options = {
+    method: 'GET',
+    headers: {
+      'X-RapidAPI-Key': '25c577684cmshbc0eb3f1b32b0bbp1252f6jsn28232380e116',
+      'X-RapidAPI-Host': 'razas-de-perros.p.rapidapi.com'
+    }
   };
+  
 
   razas: Raza[];
 
-  URL_API = `${dominio}/api/raza`;
+  URL_API = `https://razas-de-perros.p.rapidapi.com/TypeOfBreeds`;
 
   constructor(private http: HttpClient) { }
 
   getRazas(){
-    return this.http.get<Raza[]>(this.URL_API);
+    return this.http.get<Raza[]>(this.URL_API, this.options);
   }
 
-  createRaza(raza: Raza){
+/*   createRaza(raza: Raza){
     return this.http.post(this.URL_API, raza);
   }
 
@@ -32,5 +41,5 @@ export class RazaService {
 
   putRaza(raza:Raza){
     return this.http.put(`${this.URL_API}/${raza._id}`, raza);
-  }
+  } */
 }

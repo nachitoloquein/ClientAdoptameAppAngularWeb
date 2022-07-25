@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MascotaService } from '../../services/mascota.service';
 import { RazaService } from 'src/app/services/raza.service';
-import { TipoAnimalService } from 'src/app/services/tipo-animal.service';
 import { NgForm } from '@angular/forms';
 import { Mascota } from 'src/app/model/mascota';
 
@@ -13,12 +12,11 @@ import { Mascota } from 'src/app/model/mascota';
 })
 export class MascotaComponent implements OnInit {
 
-  constructor(public mascotaService: MascotaService, public razaService: RazaService, public tipoAnimalService: TipoAnimalService) { }
+  constructor(public mascotaService: MascotaService, public razaService: RazaService) { }
 
   ngOnInit(): void {
     this.getMascotas();
     this.getRazas();
-    this.getTipoAnimales();
   }
 
   getRazas() {
@@ -30,14 +28,6 @@ export class MascotaComponent implements OnInit {
     );
   }
 
-  getTipoAnimales() {
-    this.tipoAnimalService.getTipoAnimales().subscribe(
-      res => {
-        this.tipoAnimalService.tiposAnimales = res;
-      },
-      err => console.log(err)
-    );
-  }
 
   getMascotas() {
     this.mascotaService.getMascotas().subscribe(

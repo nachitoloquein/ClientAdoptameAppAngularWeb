@@ -11,15 +11,9 @@ export class MascotaService {
 
   selectedMascota: Mascota ={
     nombre: '',
-    tipoAnimal:  {
-      _id: '',
-      descripcion: ''
-    },
-    raza: {
-      _id: '',
-      descripcion:''
-    }
-  };
+    raza: ''
+  }
+
   mascotas: Mascota[];
   
   URL_API = `${dominio}/api/mascotas`;

@@ -1,4 +1,4 @@
 export interface Raza{
-    _id?: string,
-    descripcion: string
+    id: string,
+    name: string
 }
