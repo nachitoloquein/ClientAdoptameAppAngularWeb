@@ -11,7 +11,9 @@ export class MascotaService {
 
   selectedMascota: Mascota ={
     nombre: '',
-    raza: ''
+    raza: '',
+    foto: '',
+    sexo: ''
   }
 
   mascotas: Mascota[];
@@ -25,7 +27,12 @@ export class MascotaService {
   }
 
   createMascota(mascota: Mascota){
-    return this.http.post(this.URL_API, mascota);
+    const formData = new FormData();
+    formData.append('foto', mascota.foto);
+    formData.append('raza', mascota.raza);
+    formData.append('nombre', mascota.nombre);
+    formData.append('sexo', mascota.sexo)
+    return this.http.post(this.URL_API, formData);
   }
 
   deleteMascota(_id: string){
