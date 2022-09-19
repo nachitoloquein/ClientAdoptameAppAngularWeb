@@ -12,7 +12,7 @@ export class MascotaService {
   selectedMascota: Mascota ={
     nombre: '',
     raza: '',
-    foto: '',
+    fotoURL: [],
     sexo: ''
   }
 
@@ -26,9 +26,13 @@ export class MascotaService {
     return this.http.get<Mascota[]>(this.URL_API);
   }
 
-  createMascota(mascota: Mascota){
-    const formData = new FormData();
-    formData.append('foto', mascota.foto);
+  createMascota(mascota: Mascota, foto1: File, foto2: File, foto3: File, foto4: File, foto5: File){
+    const formData: any = new FormData();
+    formData.append('foto', foto1);
+    formData.append('foto', foto2);
+    formData.append('foto', foto3);
+    formData.append('foto', foto4);
+    formData.append('foto', foto5);
     formData.append('raza', mascota.raza);
     formData.append('nombre', mascota.nombre);
     formData.append('sexo', mascota.sexo)
