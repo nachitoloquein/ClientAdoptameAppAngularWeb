@@ -30,16 +30,4 @@ export class RazaService {
   getRazas(){
     return this.http.get<Raza[]>(this.URL_API, this.options);
   }
-
-/*   createRaza(raza: Raza){
-    return this.http.post(this.URL_API, raza);
-  }
-
-  deleteRaza(_id: string){
-    return this.http.delete(`${this.URL_API}/${_id}`);
-  }
-
-  putRaza(raza:Raza){
-    return this.http.put(`${this.URL_API}/${raza._id}`, raza);
-  } */
 }

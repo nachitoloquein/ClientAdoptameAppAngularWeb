@@ -12,7 +12,7 @@ import { Mascota } from 'src/app/model/mascota';
 })
 export class MascotaComponent implements OnInit {
 
-  fotos: File[];
+  fotos: File;
 
   constructor(public mascotaService: MascotaService, public razaService: RazaService) { }
 
@@ -23,8 +23,8 @@ export class MascotaComponent implements OnInit {
 
   subirFotos(event:any){
     if (event.target.files && event.target.files[0]) {
-      this.fotos.push(<File>event.target.files[0]);
-      console.log(this.fotos);  
+      this.fotos = (<File>event.target.files[0]);
+      console.log(this.fotos);
     }
   }
 
@@ -58,7 +58,7 @@ export class MascotaComponent implements OnInit {
       )
     }
     else{
-    this.mascotaService.createMascota(form.value, this.fotos[0], this.fotos[1], this.fotos[2], this.fotos[3], this.fotos[4]).subscribe(
+    this.mascotaService.createMascota(form.value, this.fotos).subscribe(
       res => {
         this.getMascotas();
         form.reset();
